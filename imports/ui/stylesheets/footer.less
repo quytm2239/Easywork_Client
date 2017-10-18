@@ -1,0 +1,133 @@
+/*
+footer {
+    width: 100%;
+    height: 60px;
+    background: @color-main-theme;
+    line-height: 1.0 !important;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    .footer-container {
+        width: 800px;
+        min-width: 800px;
+        height: 100%;
+        margin: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        table {
+            width: 100%;
+            height: 100%;
+            tr, td {
+                padding: 0px;
+                margin: 0px;
+            }
+        }
+        .copy-right, .location, .contact, .phone {
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            font-size: 16px;
+        }
+        .location, .contact, .phone {
+            padding-left: 10px;
+        }
+        i {
+            vertical-align: middle;
+            margin: auto;
+            font-size: 30px;
+        }
+    }
+}
+*/
+
+footer {
+    width: 100%;
+    height: 50px;
+    background: @color-main-theme;
+    line-height: 1.0 !important;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    padding-top: 10px;
+    i {
+        vertical-align: middle;
+        margin: auto;
+        font-size: 30px;
+    }
+
+    .copy-right, .location, .contact, .phone {
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 18px;
+    }
+    .copy-right {
+        padding: 0px;
+    }
+    .location, .contact, .phone {
+        visibility: hidden;
+    }
+    .button-expand-container {
+        z-index: -1;
+        width: 36px;
+        height: 36px;
+        position: fixed;
+        bottom: 35px;
+        left: 50%;
+        margin-left: -18px;
+        background: white;
+        border-radius: 18px;
+
+        .button-expand-container-fake-border {
+            z-index: inherit;
+            width: 34px;
+            height: 34px;
+            margin-top: 1px;
+            margin-left: 1px;
+            background: @color-main-theme;
+            border-radius: 17px;
+        }
+
+        #buttonExpand {
+            // margin: 0px;
+            cursor: default;
+            margin-left: -2px;
+            margin-top: -3px;
+            width: 38px;
+            height: 38px;
+            color: @color-home-header-background;
+            font-size: 38px;
+        }
+    }
+}
+
+
+
+footer .tooltiptext {
+    visibility: hidden;
+    background-color: rgba(107, 8, 45, 0.85);
+    color: #fff;
+    width: 200px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -100px;
+}
+footer .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgba(107, 8, 45, 0.85) transparent transparent transparent;
+}
+
+footer:hover .tooltiptext {
+    visibility: visible;
+}

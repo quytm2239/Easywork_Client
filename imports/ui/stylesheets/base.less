@@ -1,0 +1,22 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.layout-top-inset_for_header {
+    height: 0px;
+    min-height: 0px;
+}
+.layout-container {
+    /* Firefox */
+    background: @color-home-header-background;
+    overflow: auto;
+    height: ~"-moz-calc(100% - (50px + 60px))";
+    /* WebKit */
+    height: ~"-webkit-calc(100% - (50px + 60px))";
+    /* Opera */
+    height: ~"-o-calc(100% - (50px + 60px))";
+    /* Standard */
+    height: ~"calc(100% - (50px + 60px))";
+}
