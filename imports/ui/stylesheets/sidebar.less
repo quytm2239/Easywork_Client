@@ -1,0 +1,71 @@
+.side-bar-container {
+    border-right: @color-main-theme solid 1px;
+    position: fixed;
+    background: @color-side-bar;
+    width: 300px;
+
+    height: ~"-moz-calc(100% - 57px)";
+    /* WebKit */
+    height: ~"-webkit-calc(100% - 57px)";
+    /* Opera */
+    height: ~"-o-calc(100% - 57px)";
+    /* Standard */
+    height: ~"calc(100% - 57px)";
+
+    .side-bar-header {
+        padding: 12px 12px 12px 20px;
+        .side-bar-header-img {
+            width: 54px;
+            height: 54px;
+        }
+    }
+
+    .side-bar-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        line-height: 1em;
+        overflow: auto;
+        height: ~"-moz-calc(100% - 77px - 40px)";
+        /* WebKit */
+        height: ~"-webkit-calc(100% - 77px - 40px)";
+        /* Opera */
+        height: ~"-o-calc(100% - 77px - 40px)";
+        /* Standard */
+        height: ~"calc(100% - 77px - 40px)";
+
+        border-top: @color-main-theme solid 1px;
+
+        .side-bar-item {
+            background: @color-side-bar;
+        }
+        .side-bar-item-selected {
+            background: @color-side-bar-item-selected;
+        }
+        li.side-bar-item, li.side-bar-item-selected {
+            padding: 12px 12px 12px 20px;
+            color: @color-main-theme;
+            cursor: default;
+        }
+    }
+    .side-bar-footer {
+        position: fixed;
+        bottom: 0;
+        height: 40px;
+        border-top: @color-main-theme solid 1px;
+        width: 300px;
+        background: @color-side-bar;
+        #buttonCollapseSideBar {
+            float: right;
+            height: 100%;
+            width: 50px;
+            background: #c4cde0;
+            border-right: @color-main-theme solid 1px;
+            #iconCollapseSideBar {
+                margin: 5px 11px 5px 9px;
+                font-size: 30px;
+                color: @color-main-theme;
+            }
+        }
+    }
+}

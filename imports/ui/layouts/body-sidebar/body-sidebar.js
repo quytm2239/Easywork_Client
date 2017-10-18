@@ -1,7 +1,7 @@
-import './body.html';
+import './body-sidebar.html';
 import '../../components/header/header.js';
 // import '../../components/footer/footer.js';
-// import '../../components/sidebar/sidebar.js';
+import '../../components/sidebar/sidebar.js';
 
 Template.App_body.onCreated(function () {
     // counter starts at 0
