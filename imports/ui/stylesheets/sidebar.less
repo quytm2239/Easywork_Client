@@ -13,7 +13,7 @@
     height: ~"calc(100% - 57px)";
 
     .side-bar-header {
-        padding: 12px 12px 12px 20px;
+        padding: 12px 12px 12px 12px;
         .side-bar-header-img {
             width: 54px;
             height: 54px;
@@ -26,26 +26,57 @@
         padding: 0;
         line-height: 1em;
         overflow: auto;
-        height: ~"-moz-calc(100% - 77px - 40px)";
+        /* 41 is height of sidebar FOOTER and its top border 1px */
+        /* 78px is height of sidebar HEADER */
+        /* 1px is sidebar list items top border */
+        height: ~"-moz-calc(100% - 1px - 78px - 41px)";
         /* WebKit */
-        height: ~"-webkit-calc(100% - 77px - 40px)";
+        height: ~"-webkit-calc(100% - 1px - 78px - 41px)";
         /* Opera */
-        height: ~"-o-calc(100% - 77px - 40px)";
+        height: ~"-o-calc(100% - 1px - 78px - 41px)";
         /* Standard */
-        height: ~"calc(100% - 77px - 40px)";
+        height: ~"calc(100% - 1px - 78px - 41px)";
 
         border-top: @color-main-theme solid 1px;
 
-        .side-bar-item {
-            background: @color-side-bar;
-        }
         .side-bar-item-selected {
             background: @color-side-bar-item-selected;
+            // border-top: @color-main-theme solid 0.5px;
+            // border-bottom: @color-main-theme solid 0.5px;
+            font-weight: bold;
         }
-        li.side-bar-item, li.side-bar-item-selected {
-            padding: 12px 12px 12px 20px;
+        .side-bar-item {
+            padding: 12px 12px 12px 12px;
             color: @color-main-theme;
             cursor: default;
+            flex-grow: 1;
+            font-size: 16px;
+            background: transparent;
+        }
+        .side-bar-item, .side-bar-item-selected {
+
+        }
+
+        li {
+            height: 40px;
+            padding-left: 12px;
+            display: flex;
+            cursor: pointer;
+            .side-bar-item {
+                cursor: inherit;
+            }
+            .side-bar-item-selected {
+                cursor: inherit;
+            }
+        }
+
+        li:hover {
+            background: @color-side-bar-item-selected;
+        }
+        .side-bar-item-icon {
+            font-size: 25px;
+            color: @color-main-theme;
+            margin-top: ~"calc((40px - 25px) / 2)";
         }
     }
     .side-bar-footer {
@@ -53,18 +84,20 @@
         bottom: 0;
         height: 40px;
         border-top: @color-main-theme solid 1px;
-        width: 300px;
+        width: 299px;
         background: @color-side-bar;
         #buttonCollapseSideBar {
             float: right;
             height: 100%;
             width: 50px;
             background: #c4cde0;
-            border-right: @color-main-theme solid 1px;
+            // border-right: @color-main-theme solid 1px;
+            cursor: pointer;
             #iconCollapseSideBar {
                 margin: 5px 11px 5px 9px;
                 font-size: 30px;
                 color: @color-main-theme;
+                cursor: inherit;
             }
         }
     }

@@ -3,17 +3,19 @@ import '../../components/header/header.js';
 // import '../../components/footer/footer.js';
 import '../../components/sidebar/sidebar.js';
 
-Template.App_body.onCreated(function () {
+Template.App_body_sidebar.onCreated(function () {
     // counter starts at 0
     this.preScrollPosition = 0;
     this.isScrollDown = false;
-    this.isBigFooter = false;
+    this.isFullSizeBar = true;
 });
 
-const deltaHeight = 90;
+const MIN_SIDEBAR_WIDTH = 49;
+const MAX_SIDEBAR_WIDTH = 299;
 
-Template.App_body.onRendered(function () {
+Template.App_body_sidebar.onRendered(function () {
     // counter starts at 0
+
 });
 
 $(function () {
@@ -25,33 +27,38 @@ $(function () {
 function changeLayout () {
 }
 
-Template.App_body.events({
-    // 'scroll .layout-container'(event, instance){
-    //     var currentPosition = event.target.scrollTop;
-    //     if (currentPosition > instance.preScrollPosition) {
-    //         // ScrollDown
-    //         if (instance.isScrollDown != true) {
-    //             updateFooterAndLayoutContainer(true);
-    //             instance.isScrollDown = true;
-    //             instance.isBigFooter = false;
-    //         }
-    //     } else {
-    //         if (instance.isScrollDown != false) {
-    //             updateFooterAndLayoutContainer(false);
-    //             instance.isScrollDown = false;
-    //             instance.isBigFooter = true;
-    //         }
-    //     }
-    //     instance.preScrollPosition = currentPosition;
-    // },
+function clickSizeBarFooter(isFullSizeBar) {
+    var sizebarWidth = isFullSizeBar ? MAX_SIDEBAR_WIDTH : MIN_SIDEBAR_WIDTH;
+    var containerSideBarLeftMargin = isFullSizeBar ? '300px' : '50px';
+    // $('.side-bar-containe').width()
+    $('.side-bar-container').width(sizebarWidth);
+    $('.side-bar-footer').width(sizebarWidth);
+    $('.layout-container-side-bar').css('margin-left',containerSideBarLeftMargin);
 
-    'click footer'(event, instance) {
-        if (instance.isBigFooter == false) {
-            instance.isBigFooter = true;
-            clickFooter(instance.isBigFooter,instance.originalBottom,instance.originalHeight);
+    if (isFullSizeBar) {
+        $('.side-bar-header').css('padding','12px 12px 12px 12px');
+        $('.side-bar-header-img').height(54);
+        $('.side-bar-header-img').width(54);
+        $('#iconCollapseSideBar').text('keyboard_arrow_left');
+        $('.side-bar-item').show();
+    } else {
+        $('.side-bar-header').css('padding','12px 6.5px 12px 6.5px');
+        $('.side-bar-header-img').height(36);
+        $('.side-bar-header-img').width(36);
+        $('#iconCollapseSideBar').text('keyboard_arrow_right');
+        $('.side-bar-item').hide();
+    }
+}
+
+Template.App_body_sidebar.events({
+
+    'click #buttonCollapseSideBar'(event, instance) {
+        if (instance.isFullSizeBar == false) {
+            instance.isFullSizeBar = true;
+            clickSizeBarFooter(instance.isFullSizeBar);
         } else {
-            instance.isBigFooter = false;
-            clickFooter(instance.isBigFooter,instance.originalBottom,instance.originalHeight);
+            instance.isFullSizeBar = false;
+            clickSizeBarFooter(instance.isFullSizeBar);
         }
     }
 });
