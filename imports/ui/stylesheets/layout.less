@@ -1,6 +1,9 @@
 @charset "utf-8";
 .row2, .row2 a{}
 
+.menu-btn {
+	margin-left: 2em !important;
+}
 
 /* Navigation
 --------------------------------------------------------------------------------------------------------------- */
@@ -63,13 +66,27 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
 
+#search{
+	margin-left: 60em;
+	width: 6.5em;
+	text-align: right;
+}
+
+#search-icon{
+	position: absolute;
+	top: 0.69em;
+	color: grey;
+	left: 64.7em;
+	font-size: 15px;
+}
+
 /* Rows */
 .row2{color:#FFFFFF; background-color:@color-main-theme; }
 
 
 /* Navigation */
 #mainav li a{color:inherit; background-color:inherit;}
-#mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#00BCDF; background-color:inherit;}
+#mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#00BCDF; background-color:inherit; text-decoration: none}
 #mainav li li a, #mainav .active li a{color:#FFFFFF; background-color:#8b9dc3; border-color:rgba(0,0,0,.6);}
 #mainav li li:hover > a, #mainav .active .active > a{color:#FFFFFF; background-color:#00BCDF;}
 #mainav form select{color:#FFFFFF; background-color:#3C4348;}
@@ -86,8 +103,6 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 
 #backtotop{color:#FFFFFF; background-color:#00BCDF;}
 
-.hoc{display:block; margin:0 auto;}
-
 /* Media Queries
 --------------------------------------------------------------------------------------------------------------- */
 @-ms-viewport{width:device-width;}
@@ -96,7 +111,7 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 /* Max Wrapper Width - Laptop, Desktop etc.
 --------------------------------------------------------------------------------------------------------------- */
 @media screen and (min-width:978px){
-	.hoc{max-width:978px;}
+	// .hoc{max-width:978px;}
 }
 
 
