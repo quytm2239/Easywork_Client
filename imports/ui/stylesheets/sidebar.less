@@ -4,13 +4,16 @@
     background: @color-side-bar;
     width: 300px;
 
-    height: ~"-moz-calc(100% - 57px)";
+    height: ~"-moz-calc(100% - 61px)";
     /* WebKit */
-    height: ~"-webkit-calc(100% - 57px)";
+    height: ~"-webkit-calc(100% - 61px)";
     /* Opera */
-    height: ~"-o-calc(100% - 57px)";
+    height: ~"-o-calc(100% - 61px)";
     /* Standard */
-    height: ~"calc(100% - 57px)";
+    height: ~"calc(100% - 61px)";
+
+    display: flex;
+    flex-direction: column;
 
     .side-bar-header {
         padding: 12px 12px 12px 12px;
@@ -20,41 +23,48 @@
         }
     }
 
+    .side-bar-project-info {
+        height: 250px;
+        border-top: @color-main-theme solid 1px;
+
+        display: flex;
+        flex-direction: column;
+
+        #iconCollapseProjectInfo{
+            color: @color-main-theme;
+            width: 100%;
+            text-align: center;
+            height: 25px;
+            font-size: 25px;
+            line-height: 100%;
+            cursor: pointer;
+            border-bottom: @color-main-theme solid 1px;
+        }
+
+        .side-bar-project-info-content{
+            line-height: 1;
+            flex-grow: 1;
+            word-wrap: break-word;
+            overflow: auto;
+        }
+    }
+
     .side-bar-list {
         list-style-type: none;
         margin: 0;
         padding: 0;
         line-height: 1em;
         overflow: auto;
-        /* 41 is height of sidebar FOOTER and its top border 1px */
-        /* 78px is height of sidebar HEADER */
-        /* 1px is sidebar list items top border */
-        height: ~"-moz-calc(100% - 1px - 78px - 41px)";
-        /* WebKit */
-        height: ~"-webkit-calc(100% - 1px - 78px - 41px)";
-        /* Opera */
-        height: ~"-o-calc(100% - 1px - 78px - 41px)";
-        /* Standard */
-        height: ~"calc(100% - 1px - 78px - 41px)";
-
+        flex-grow: 1;
         border-top: @color-main-theme solid 1px;
+        margin-bottom: 41px; // Footer height and its top border
 
-        .side-bar-item-selected {
-            background: @color-side-bar-item-selected;
-            // border-top: @color-main-theme solid 0.5px;
-            // border-bottom: @color-main-theme solid 0.5px;
-            font-weight: bold;
-        }
         .side-bar-item {
             padding: 12px 12px 12px 12px;
             color: @color-main-theme;
             cursor: default;
-            flex-grow: 1;
             font-size: 16px;
             background: transparent;
-        }
-        .side-bar-item, .side-bar-item-selected {
-
         }
 
         li {
@@ -79,6 +89,7 @@
             margin-top: ~"calc((40px - 25px) / 2)";
         }
     }
+
     .side-bar-footer {
         position: fixed;
         bottom: 0;
@@ -101,4 +112,10 @@
             }
         }
     }
+}
+
+.selected {
+    background: @color-side-bar-item-selected;
+    // border-top: @color-main-theme solid 0.5px;
+    // border-bottom: @color-main-theme solid 0.5px;
 }
